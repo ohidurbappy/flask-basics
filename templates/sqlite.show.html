@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            padding:4px;
+        }
+
+        tr:nth-last-of-type(odd){
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-last-of-type(even){
+            background-color: #d8d8d8;
+        }
+        thead{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <table style="border: 0;padding:8px;">
+        <thead>
+           <td>Name</td>
+           <td>Address</td>
+           <td>city</td>
+           <td>Phone</td>
+        </thead>
+        
+        {% for row in rows %}
+           <tr>
+              <td>{{row["name"]}}</td>
+              <td>{{row["address"]}}</td>
+              <td> {{ row["city"]}}</td>
+              <td>{{row['phone']}}</td>	
+           </tr>
+        {% endfor %}
+     </table>
+     
+     <a href = "{{url_for('index')}}">Go back to home page</a>
+</body>
+</html>
